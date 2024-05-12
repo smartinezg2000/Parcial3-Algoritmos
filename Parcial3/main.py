@@ -8,49 +8,49 @@ class BinarySearchTree:
     def __init__(self):
         self.root = None
 
-    def insert(self, value):
-        new_node = Node(value)
+    def insert(self, letter, code):
         if self.root is None:
-            self.root = new_node
+            self.root = Node(letter)
         else:
             current_node = self.root
-            while True:
-                if value < current_node.value:
+            for symbol in code:
+                if symbol == ".":
                     if current_node.left is None:
-                        current_node.left = new_node
-                        return self
+                        current_node.left = Node(letter)
                     current_node = current_node.left
-                else:
+                elif symbol == "-":
                     if current_node.right is None:
-                        current_node.right = new_node
-                        return self
+                        current_node.right = Node(letter)
                     current_node = current_node.right
 
-    def lookup(self, value):
-        if self.root is None:
-            return False
-        current_node = self.root
-        while current_node:
-            if value < current_node.value:
-                current_node = current_node.left
-            elif value > current_node.value:
-                current_node = current_node.right
+    def translate(self,code):
+
+        current = self.root
+        for character in code:
+            if character == '.':
+                current = current.left
             else:
-                return current_node
-        return False
+                current = current.right
+        return current.value
 
-    def preorder(self, node):
 
-        if node:
-            print(node.dato)
-            self.preorder(node.left)
-            self.preorder(node.right)
+
 
 
 tree = BinarySearchTree()
-tree.insert(4)
-tree.insert(3)
-tree.insert(7)
-tree.insert(2)
-tree.insert(1)
-print(tree.preorder())
+tree.insert('e','.')
+tree.insert('i ','.')
+tree.insert('a ','-')
+tree.insert('s','..')
+tree.insert('v','..-')
+# tree.insert('','')
+# tree.insert('','')
+# tree.insert('','')
+# tree.insert('','')
+# tree.insert('','')
+# tree.insert('','')
+# tree.insert('','')
+# tree.insert('r ','-.')
+
+print(tree.translate('..-'))
+print(tree.root.left.left.value)
