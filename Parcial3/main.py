@@ -73,17 +73,3 @@ class AVLTree:
         y.height = 1 + max(self._get_height(y.left), self._get_height(y.right))
 
         return y
-
-<<<<<<< HEAD
-print(tree.translate('..-'))
-print(tree.root.left.left.value)
-
-codigo_morse = {
-    "a": ".-", "b": "-...", "c": "-.-.", "d": "-..", "e": ".", "f": "..-.", "g": "--.", "h": "....", "i": "..",
-    "j": ".---", "k": "-.-", "l": ".-..", "m": "--", "n": "-.", "o": "---", "p": ".--.", "q": "--.-", "r": ".-.",
-    "s": "...", "t": "-", "u": "..-", "v": "...-", "w": ".--", "x": "-..-", "y": "-.--", "z": "--..",
-}
-
-
-=======
->>>>>>> 2836755 (codigo a medias)
